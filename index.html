@@ -22,11 +22,20 @@
         let submit = document.querySelector("#submit-article");
         submit.addEventListener("click", function(e) {
             e.preventDefault();
-            let form = document.querySelector("#form-article");
-            fetch("new-article.php", {
+            let title = document.querySelector("#title").value;
+            let content = document.querySelector("#content").value;
+            let data = JSON.stringify({
+                title: title,
+                content: content
+            });
+            fetch("http://192.168.1.152:8080/article/?id=louis", {
                 method: "POST",
-                body: new FormData(form)
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: data
             }).then(function(response) {
+                console.log(response.status);
                 return response.text();
             }).then(function(text) {
                 console.log(text);
