@@ -51,3 +51,7 @@ them. We will need to update `index.html` to:
     - create a `button` somewhere on the webpage
     - create a `click` listener on the `button` to:
         - send a request to the server to delete all articles 
+
+## Bonus: Get Articles As XML
+
+As a bonus, you can get the articles as XML. You will need to access `/articles/{id}` sending the HTTP header `Accept` with the value `text/xml`.
